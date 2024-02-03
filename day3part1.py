@@ -2,6 +2,8 @@
 # found resources:
 #           https://stackoverflow.com/questions/54733936/splitting-a-string-on-non-digits
 #           https://www.geeksforgeeks.org/python-remove-empty-strings-from-list-of-strings/
+
+import time
 import re
 
 def get_neighbor_chars(line, index):
@@ -13,6 +15,7 @@ def get_neighbor_chars(line, index):
     return neighbor_chars
 
 def main ():
+    start_time = time.time() 
     f = open("dataPart1.txt", "r")
     lineList = f.readlines()
     testCase = []
@@ -49,5 +52,9 @@ def main ():
                 numericToggle = False
         previous_line = line
     print("Sum is: " + str(sum(testCase)))
+
+    end_time = time.time()  # Record the end time
+    execution_time = round(end_time - start_time, 5)
+    print("Execution time:", execution_time, "seconds")
         
 main()
